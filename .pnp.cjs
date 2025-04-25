@@ -48,6 +48,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/glob", "npm:8.1.0"],\
             ["@types/jest", "npm:29.5.14"],\
             ["@types/lodash", "npm:4.17.5"],\
+            ["@types/method-override", "virtual:3a02cceef93055271d0890b855d0c93a770c9c876ee9b808cf9e23d8d1b8581b5b6efcfb80a9768d650dfa22f93777eca81ae9ef4de2301b22a7619649eb692a#npm:3.0.0"],\
             ["@types/node", "npm:20.14.2"],\
             ["@types/nunjucks", "npm:3.2.6"],\
             ["@types/require-directory", "npm:2.1.6"],\
@@ -79,7 +80,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["express-nunjucks", "virtual:3a02cceef93055271d0890b855d0c93a770c9c876ee9b808cf9e23d8d1b8581b5b6efcfb80a9768d650dfa22f93777eca81ae9ef4de2301b22a7619649eb692a#npm:3.1.2"],\
             ["express-session", "npm:1.18.1"],\
             ["glob", "npm:10.4.1"],\
-            ["govuk-frontend", "npm:4.8.0"],\
+            ["govuk-frontend", "npm:5.9.0"],\
             ["html-webpack-plugin", "virtual:3a02cceef93055271d0890b855d0c93a770c9c876ee9b808cf9e23d8d1b8581b5b6efcfb80a9768d650dfa22f93777eca81ae9ef4de2301b22a7619649eb692a#npm:5.6.0"],\
             ["husky", "npm:9.0.11"],\
             ["jest", "virtual:3a02cceef93055271d0890b855d0c93a770c9c876ee9b808cf9e23d8d1b8581b5b6efcfb80a9768d650dfa22f93777eca81ae9ef4de2301b22a7619649eb692a#npm:29.7.0"],\
@@ -88,7 +89,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jquery", "npm:3.7.1"],\
             ["lint-staged", "npm:15.2.5"],\
             ["lodash", "npm:4.17.21"],\
+            ["method-override", "npm:3.0.0"],\
             ["mini-css-extract-plugin", "virtual:3a02cceef93055271d0890b855d0c93a770c9c876ee9b808cf9e23d8d1b8581b5b6efcfb80a9768d650dfa22f93777eca81ae9ef4de2301b22a7619649eb692a#npm:2.9.0"],\
+            ["moment", "npm:2.30.1"],\
             ["nock", "npm:13.5.4"],\
             ["nodemon", "npm:3.1.3"],\
             ["nunjucks", "virtual:3a02cceef93055271d0890b855d0c93a770c9c876ee9b808cf9e23d8d1b8581b5b6efcfb80a9768d650dfa22f93777eca81ae9ef4de2301b22a7619649eb692a#npm:3.2.4"],\
@@ -5859,6 +5862,26 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@types/method-override", [\
+        ["npm:3.0.0", {\
+          "packageLocation": "./.yarn/cache/@types-method-override-npm-3.0.0-a1ab2ca946-219c23e4fc.zip/node_modules/@types/method-override/",\
+          "packageDependencies": [\
+            ["@types/method-override", "npm:3.0.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:3a02cceef93055271d0890b855d0c93a770c9c876ee9b808cf9e23d8d1b8581b5b6efcfb80a9768d650dfa22f93777eca81ae9ef4de2301b22a7619649eb692a#npm:3.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@types-method-override-virtual-6a26d4b363/0/cache/@types-method-override-npm-3.0.0-a1ab2ca946-219c23e4fc.zip/node_modules/@types/method-override/",\
+          "packageDependencies": [\
+            ["@types/method-override", "virtual:3a02cceef93055271d0890b855d0c93a770c9c876ee9b808cf9e23d8d1b8581b5b6efcfb80a9768d650dfa22f93777eca81ae9ef4de2301b22a7619649eb692a#npm:3.0.0"],\
+            ["@types/express", "npm:4.17.21"]\
+          ],\
+          "packagePeers": [\
+            "@types/express"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@types/methods", [\
         ["npm:1.1.4", {\
           "packageLocation": "./.yarn/cache/@types-methods-npm-1.1.4-8565dc8af4-ad2a717848.zip/node_modules/@types/methods/",\
@@ -9496,6 +9519,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
+        ["npm:3.1.0", {\
+          "packageLocation": "./.yarn/cache/debug-npm-3.1.0-9f0accb99b-0b52718ab9.zip/node_modules/debug/",\
+          "packageDependencies": [\
+            ["debug", "npm:3.1.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
         ["npm:3.2.7", {\
           "packageLocation": "./.yarn/cache/debug-npm-3.2.7-754e818c7a-b3d8c59407.zip/node_modules/debug/",\
           "packageDependencies": [\
@@ -9516,6 +9546,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["debug", "npm:4.3.5"]\
           ],\
           "linkType": "SOFT"\
+        }],\
+        ["virtual:18cffef2a7c3b580175b0613d4962a60da0f68f07c103cbbbb52a3e04487c34d891c67b11d03c803f8cd5d941697942ab7c1413232792e36035eb93848b4ab71#npm:3.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/debug-virtual-587e333962/0/cache/debug-npm-3.1.0-9f0accb99b-0b52718ab9.zip/node_modules/debug/",\
+          "packageDependencies": [\
+            ["debug", "virtual:18cffef2a7c3b580175b0613d4962a60da0f68f07c103cbbbb52a3e04487c34d891c67b11d03c803f8cd5d941697942ab7c1413232792e36035eb93848b4ab71#npm:3.1.0"],\
+            ["@types/supports-color", null],\
+            ["ms", "npm:2.0.0"],\
+            ["supports-color", null]\
+          ],\
+          "packagePeers": [\
+            "@types/supports-color",\
+            "supports-color"\
+          ],\
+          "linkType": "HARD"\
         }],\
         ["virtual:2a426afc4b2eef43db12a540d29c2b5476640459bfcd5c24f86bb401cf8cce97e63bd81794d206a5643057e7f662643afd5ce3dfc4d4bfd8e706006c6309c5fa#npm:3.2.7", {\
           "packageLocation": "./.yarn/__virtual__/debug-virtual-d2345003b7/0/cache/debug-npm-3.2.7-754e818c7a-b3d8c59407.zip/node_modules/debug/",\
@@ -11985,10 +12029,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["govuk-frontend", [\
-        ["npm:4.8.0", {\
-          "packageLocation": "./.yarn/cache/govuk-frontend-npm-4.8.0-48d4f1031d-e255f924f3.zip/node_modules/govuk-frontend/",\
+        ["npm:5.9.0", {\
+          "packageLocation": "./.yarn/cache/govuk-frontend-npm-5.9.0-c2de295b9d-cfff850410.zip/node_modules/govuk-frontend/",\
           "packageDependencies": [\
-            ["govuk-frontend", "npm:4.8.0"]\
+            ["govuk-frontend", "npm:5.9.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -12166,6 +12210,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/glob", "npm:8.1.0"],\
             ["@types/jest", "npm:29.5.14"],\
             ["@types/lodash", "npm:4.17.5"],\
+            ["@types/method-override", "virtual:3a02cceef93055271d0890b855d0c93a770c9c876ee9b808cf9e23d8d1b8581b5b6efcfb80a9768d650dfa22f93777eca81ae9ef4de2301b22a7619649eb692a#npm:3.0.0"],\
             ["@types/node", "npm:20.14.2"],\
             ["@types/nunjucks", "npm:3.2.6"],\
             ["@types/require-directory", "npm:2.1.6"],\
@@ -12197,7 +12242,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["express-nunjucks", "virtual:3a02cceef93055271d0890b855d0c93a770c9c876ee9b808cf9e23d8d1b8581b5b6efcfb80a9768d650dfa22f93777eca81ae9ef4de2301b22a7619649eb692a#npm:3.1.2"],\
             ["express-session", "npm:1.18.1"],\
             ["glob", "npm:10.4.1"],\
-            ["govuk-frontend", "npm:4.8.0"],\
+            ["govuk-frontend", "npm:5.9.0"],\
             ["html-webpack-plugin", "virtual:3a02cceef93055271d0890b855d0c93a770c9c876ee9b808cf9e23d8d1b8581b5b6efcfb80a9768d650dfa22f93777eca81ae9ef4de2301b22a7619649eb692a#npm:5.6.0"],\
             ["husky", "npm:9.0.11"],\
             ["jest", "virtual:3a02cceef93055271d0890b855d0c93a770c9c876ee9b808cf9e23d8d1b8581b5b6efcfb80a9768d650dfa22f93777eca81ae9ef4de2301b22a7619649eb692a#npm:29.7.0"],\
@@ -12206,7 +12251,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jquery", "npm:3.7.1"],\
             ["lint-staged", "npm:15.2.5"],\
             ["lodash", "npm:4.17.21"],\
+            ["method-override", "npm:3.0.0"],\
             ["mini-css-extract-plugin", "virtual:3a02cceef93055271d0890b855d0c93a770c9c876ee9b808cf9e23d8d1b8581b5b6efcfb80a9768d650dfa22f93777eca81ae9ef4de2301b22a7619649eb692a#npm:2.9.0"],\
+            ["moment", "npm:2.30.1"],\
             ["nock", "npm:13.5.4"],\
             ["nodemon", "npm:3.1.3"],\
             ["nunjucks", "virtual:3a02cceef93055271d0890b855d0c93a770c9c876ee9b808cf9e23d8d1b8581b5b6efcfb80a9768d650dfa22f93777eca81ae9ef4de2301b22a7619649eb692a#npm:3.2.4"],\
@@ -14781,6 +14828,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/merge2-npm-1.4.1-a2507bd06c-7268db63ed.zip/node_modules/merge2/",\
           "packageDependencies": [\
             ["merge2", "npm:1.4.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["method-override", [\
+        ["npm:3.0.0", {\
+          "packageLocation": "./.yarn/cache/method-override-npm-3.0.0-18cffef2a7-0e7300ebe6.zip/node_modules/method-override/",\
+          "packageDependencies": [\
+            ["method-override", "npm:3.0.0"],\
+            ["debug", "virtual:18cffef2a7c3b580175b0613d4962a60da0f68f07c103cbbbb52a3e04487c34d891c67b11d03c803f8cd5d941697942ab7c1413232792e36035eb93848b4ab71#npm:3.1.0"],\
+            ["methods", "npm:1.1.2"],\
+            ["parseurl", "npm:1.3.3"],\
+            ["vary", "npm:1.1.2"]\
           ],\
           "linkType": "HARD"\
         }]\

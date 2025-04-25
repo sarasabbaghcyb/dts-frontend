@@ -1,0 +1,68 @@
+{% extends "template.njk" %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+{% block content %}
+  {% if successMessage and successMessage | length > 0 %}
+    {% set html %}
+      <h3 class="govuk-notification-banner__heading">
+        {{ successMessage }}</h3>
+    {% endset %}
+  {% endif %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "/"
+  }) }}
+  <h1 class="govuk-heading-xl">Task number: {{ task.id }}</h1>
+
+  <dl class="govuk-summary-list">
+    <div class="govuk-summary-list__row" style="display: flex; justify-content: flex-end; width: 100%;">
+      <dt class="govuk-summary-list__key" style="flex: 1; margin-right: 10px; text-align: left;">
+        Title
+      </dt>
+      <dd class="govuk-summary-list__value" style="flex: 3; text-align: right;">
+        {{ task.title }}
+      </dd>
+    </div>
+
+    <div class="govuk-summary-list__row" style="display: flex; justify-content: flex-end; width: 100%;">
+      <dt class="govuk-summary-list__key" style="flex: 1; margin-right: 10px; text-align: left;">
+        Description
+      </dt>
+      <dd class="govuk-summary-list__value" style="flex: 3; text-align: right;">
+        {{ task.description }}
+      </dd>
+    </div>
+
+    <div class="govuk-summary-list__row" style="display: flex; justify-content: flex-end; width: 100%;">
+      <dt class="govuk-summary-list__key" style="flex: 1; margin-right: 10px; text-align: left;">
+        Status
+      </dt>
+      <dd class="govuk-summary-list__value" style="flex: 3; text-align: right;">
+        {% if task.status == "PENDING" %}
+          <strong class="govuk-tag govuk-tag--red">Pending</strong>
+          {% elif task.status == "COMPLETED" %}
+          <strong class="govuk-tag govuk-tag--green">Completed</strong>
+        {% else %}
+          <strong class="govuk-tag">Unknown</strong>
+        {% endif %}
+      </dd>
+    </div>
+
+    <div class="govuk-summary-list__row" style="display: flex; justify-content: flex-end; width: 100%;">
+      <dt class="govuk-summary-list__key" style="flex: 1; margin-right: 10px; text-align: left;">
+        Due date
+      </dt>
+      <dd class="govuk-summary-list__value" style="flex: 3; text-align: right;">
+        <p class="govuk-body">{{ dueDateFormatted }}</p>
+      </dd>
+    </div>
+  </dl>
+
+  <a href="/task/{{ task.id }}/edit" class="govuk-button">Edit Task</a>
+  <form method="POST" action="/task/{{ task.id }}/delete" style="display: inline;">
+    <button type="submit" class="govuk-button govuk-button--warning">Delete Task</button>
+  </form>
+{% endblock %}

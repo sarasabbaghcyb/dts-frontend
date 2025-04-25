@@ -1,0 +1,48 @@
+{% extends "template.njk" %}
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+
+{% block content %}
+  {% if errorMessage and errorMessage | length > 0 %}
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: [
+        {
+          text: errorMessage
+        }
+      ]
+    }) }}
+  {% endif %}
+
+  <h1 class="govuk-heading-xl">Edit Task</h1>
+
+  <!-- Form to create a new task -->
+  <form method="POST" action="/task/{{ task.id }}">
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="title">Task Title</label>
+      <input class="govuk-input" id="title" name="title" type="text" required value="{{ task.title }}">
+    </div>
+
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="description">Task Description</label>
+      <textarea class="govuk-textarea" id="description" name="description">{{ task.description }}</textarea>
+    </div>
+
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="status">Task Status</label>
+      <select class="govuk-select" id="status" name="status">
+        <option value="PENDING" {{ "selected" if task.status == "PENDING" }}>PENDING</option>
+        <option value="COMPLETED" {{ "selected" if task.status == "COMPLETED" }}>COMPLETED</option>
+      </select>
+    </div>
+
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="dueDate">Due Date</label>
+      <input class="govuk-input" id="dueDate" name="dueDate" type="date" required value="{{ task.dueDate}}">
+    </div>
+
+    <button type="submit" class="govuk-button">Save Edits</button>
+  </form>
+{% endblock %}

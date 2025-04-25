@@ -1,134 +1,57 @@
-{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
-
 {% extends "template.njk" %}
 
-<!-- You may want to make further use of these components: https://design-system.service.gov.uk/components/
-but ultimately it is up to you -->
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
 
 {% block content %}
-  <h1 class="govuk-heading-xl">Welcome to your dev test!  {{ successMessage }} {{errorMessage}}</h1>
-  <a href="/task/new" class="govuk-button">Add New Task</a>
-
-  <!-- The freedom is yours. You can design the solution however you like, however there is a starting point provided
-  to ensure you have both services running. You may want to make use of the Gov UK Components:
-  https://design-system.service.gov.uk/components/ to add tabs and so forth :) -->
-
-  {% if tasks.length %}
-    {% for task in tasks %}
-      <h2>{{ task.title }}</h2>
-      <p>{{ task.description }}</p>
-      <p>Status: {{ task.status }}</p>
-      <p>Due: {{ task.dueDate }}</p>
-      <hr>
-    {% endfor %}
-  {% else %}
-    <p>No tasks available.</p>
-  {% endif %}
-
-  {% if example.id %}
-
-    {{ govukSummaryList({
-      rows: [
+  {% if errorMessage and errorMessage | length > 0 %}
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: [
         {
-          key: {
-            text: "ID"
-          },
-          value: {
-            text: example.id
-          },
-          actions: {
-            items: [
-              {
-                href: "#",
-                text: "Change",
-                visuallyHiddenText: "change case id ?!"
-              }
-            ]
-          }
-        },
-        {
-          key: {
-            text: "Case Number"
-          },
-          value: {
-            text: example.caseNumber
-          },
-          actions: {
-            items: [
-              {
-                href: "#",
-                text: "Change",
-                visuallyHiddenText: "change case number"
-              }
-            ]
-          }
-        },
-        {
-          key: {
-            text: "Title"
-          },
-          value: {
-            html: example.title
-          },
-          actions: {
-            items: [
-              {
-                href: "#",
-                text: "Change",
-                visuallyHiddenText: "change case title"
-              }
-            ]
-          }
-        },
-        {
-          key: {
-            text: "Description"
-          },
-          value: {
-            html: example.description
-          },
-          actions: {
-            items: [
-               {
-                 href: "#",
-                 text: "Delete",
-                 visuallyHiddenText: "Delete description"
-               },
-               {
-                 href: "#",
-                 text: "Change",
-                 visuallyHiddenText: "Change description"
-               }
-            ]
-          }
-        },
-        {
-          key: {
-            text: "Status"
-          },
-          value: {
-            html: example.status
-          },
-          actions: {
-            items: [
-            ]
-          }
-        },
-        {
-          key: {
-           text: "Created Date"
-          },
-          value: {
-           html: example.createdDate
-          },
-          actions: {
-           items: [
-           ]
-          }
+          text: errorMessage
         }
       ]
     }) }}
-
   {% endif %}
 
+  {% if successMessage %}
+    {{ govukNotificationBanner({
+      type: "success",
+      text: successMessage
+    }) }}
+  {% endif %}
+
+  <h1 class="govuk-heading-xl">Welcome to your Task list!</h1>
+  <a href="/task/new" class="govuk-button">Add New Task</a>
+
+  {% if tasks.length %}
+    <div class="govuk-!-width-three-quarters" style="background: #f3f2f1; padding: 20px; border-radius: 5px;">
+      {% for task in tasks %}
+        <div style="padding: 16px 0; border-bottom: 1px solid #b1b4b6;">
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-three-quarters">
+              <a class="govuk-link govuk-!-font-size-19" href="/task/{{ task.id }}">
+                {{ task.title }}
+              </a>
+            </div>
+            <div class="govuk-grid-column-one-quarter govuk-!-text-align-right">
+              {% if task.status == "COMPLETED" %}
+                <strong class="govuk-tag govuk-tag--green">Completed</strong>
+              {% else %}
+                <strong class="govuk-tag govuk-tag--blue">
+                  {{ task.status or 'Incomplete' }}
+                </strong>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>No tasks available.</p>
+  {% endif %}
 {% endblock %}
+

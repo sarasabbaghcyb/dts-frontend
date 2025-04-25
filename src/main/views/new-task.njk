@@ -1,31 +1,46 @@
 {% extends "template.njk" %}
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
 
 {% block content %}
+  {% if errorMessage and errorMessage | length > 0 %}
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: [
+        {
+          text: errorMessage
+        }
+      ]
+    }) }}
+  {% endif %}
+
   <h1 class="govuk-heading-xl">Add New Task</h1>
 
   <!-- Form to create a new task -->
   <form method="POST">
     <div class="govuk-form-group">
       <label class="govuk-label" for="title">Task Title</label>
-      <input class="govuk-input" id="title" name="title" type="text" required>
+      <input class="govuk-input" id="title" name="title" type="text" required value="{{ formData.title or '' }}">
     </div>
 
     <div class="govuk-form-group">
       <label class="govuk-label" for="description">Task Description</label>
-      <textarea class="govuk-textarea" id="description" name="description"></textarea>
+      <textarea class="govuk-textarea" id="description" name="description">{{ formData.description or '' }}</textarea>
     </div>
 
     <div class="govuk-form-group">
       <label class="govuk-label" for="status">Task Status</label>
       <select class="govuk-select" id="status" name="status">
-        <option value="PENDING">PENDING</option>
-        <option value="COMPLETED">COMPLETED</option>
+        <option value="PENDING" {{ "selected" if formData.status == "PENDING" else "" }}>PENDING</option>
+        <option value="COMPLETED" {{ "selected" if formData.status == "COMPLETED" else "" }}>COMPLETED</option>
       </select>
     </div>
 
     <div class="govuk-form-group">
       <label class="govuk-label" for="dueDate">Due Date</label>
-      <input class="govuk-input" id="dueDate" name="dueDate" type="date" required>
+      <input class="govuk-input" id="dueDate" name="dueDate" type="date" required value="{{ formData.dueDate or '' }}">
     </div>
 
     <button type="submit" class="govuk-button">Create Task</button>
