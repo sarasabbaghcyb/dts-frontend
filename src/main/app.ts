@@ -4,8 +4,10 @@ import { HTTPError } from './HttpError';
 import { Nunjucks } from './modules/nunjucks';
 
 import * as bodyParser from 'body-parser';
+import flash from 'connect-flash';
 import cookieParser from 'cookie-parser';
 import express from 'express';
+import session from 'express-session';
 import { glob } from 'glob';
 import favicon from 'serve-favicon';
 
@@ -23,6 +25,12 @@ app.use(favicon(path.join(__dirname, '/public/assets/images/favicon.ico')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({
+  secret: process.env.SESSION_SECRET ?? 'secret',
+  resave: false,
+  saveUninitialized: true
+}));
+app.use(flash());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use((req, res, next) => {
   res.setHeader('Cache-Control', 'no-cache, max-age=0, must-revalidate, no-store');

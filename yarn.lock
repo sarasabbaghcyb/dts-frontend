@@ -3598,6 +3598,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/connect-flash@npm:^0.0.40":
+  version: 0.0.40
+  resolution: "@types/connect-flash@npm:0.0.40"
+  dependencies:
+    "@types/express": "*"
+  checksum: 35e61cc9d53b0777909b3482d397c3c321fc02d12e447b3700f2039a4523cf02abe43cce7aa8e01eeb0b0d596ca33cda9276876facc339c08fca4b4185e2e6a3
+  languageName: node
+  linkType: hard
+
 "@types/connect@npm:*":
   version: 3.4.35
   resolution: "@types/connect@npm:3.4.35"
@@ -3694,6 +3703,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/express-session@npm:^1.18.1":
+  version: 1.18.1
+  resolution: "@types/express-session@npm:1.18.1"
+  dependencies:
+    "@types/express": "*"
+  checksum: 380ddcbbc6a64686deafd4e2831c636d11a3252f051ebb4c49649abfab5ddf69c2b31e4ff97a2961cb02ef8c616feaa7ecaa4ad7b7f028c25d88fbfa437fb455
+  languageName: node
+  linkType: hard
+
 "@types/express@npm:*, @types/express@npm:^4.17.17":
   version: 4.17.21
   resolution: "@types/express@npm:4.17.21"
@@ -3764,13 +3782,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^29.5.4":
-  version: 29.5.12
-  resolution: "@types/jest@npm:29.5.12"
+"@types/jest@npm:^29.5.14":
+  version: 29.5.14
+  resolution: "@types/jest@npm:29.5.14"
   dependencies:
     expect: ^29.0.0
     pretty-format: ^29.0.0
-  checksum: 19b1efdeed9d9a60a81edc8226cdeae5af7479e493eaed273e01243891c9651f7b8b4c08fc633a7d0d1d379b091c4179bbaa0807af62542325fd72f2dd17ce1c
+  checksum: 18dba4623f26661641d757c63da2db45e9524c9be96a29ef713c703a9a53792df9ecee9f7365a0858ddbd6440d98fe6b65ca67895ca5884b73cbc7ffc11f3838
   languageName: node
   linkType: hard
 
@@ -6345,6 +6363,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"connect-flash@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "connect-flash@npm:0.1.1"
+  checksum: 243e103ec1fdf056e33eccdb3ccad20abe50b3c6e9b8a2a6391708cb0fcc550d116cdc2208fedd04be338ac0a45f8e7af2300042d8190c4342658f738b4d4e3a
+  languageName: node
+  linkType: hard
+
 "console-control-strings@npm:^1.1.0":
   version: 1.1.0
   resolution: "console-control-strings@npm:1.1.0"
@@ -6399,6 +6424,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cookie-signature@npm:1.0.7":
+  version: 1.0.7
+  resolution: "cookie-signature@npm:1.0.7"
+  checksum: 1a62808cd30d15fb43b70e19829b64d04b0802d8ef00275b57d152de4ae6a3208ca05c197b6668d104c4d9de389e53ccc2d3bc6bcaaffd9602461417d8c40710
+  languageName: node
+  linkType: hard
+
 "cookie@npm:0.4.0":
   version: 0.4.0
   resolution: "cookie@npm:0.4.0"
@@ -6417,6 +6449,13 @@ __metadata:
   version: 0.6.0
   resolution: "cookie@npm:0.6.0"
   checksum: f56a7d32a07db5458e79c726b77e3c2eff655c36792f2b6c58d351fb5f61531e5b1ab7f46987150136e366c65213cbe31729e02a3eaed630c3bf7334635fb410
+  languageName: node
+  linkType: hard
+
+"cookie@npm:0.7.2":
+  version: 0.7.2
+  resolution: "cookie@npm:0.7.2"
+  checksum: 9bf8555e33530affd571ea37b615ccad9b9a34febbf2c950c86787088eb00a8973690833b0f8ebd6b69b753c62669ea60cec89178c1fb007bf0749abed74f93e
   languageName: node
   linkType: hard
 
@@ -6890,7 +6929,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"depd@npm:2.0.0":
+"depd@npm:2.0.0, depd@npm:~2.0.0":
   version: 2.0.0
   resolution: "depd@npm:2.0.0"
   checksum: abbe19c768c97ee2eed6282d8ce3031126662252c58d711f646921c9623f9052e3e1906443066beec1095832f534e57c523b7333f8e7e0d93051ab6baef5ab3a
@@ -7866,6 +7905,22 @@ __metadata:
     express: ^4.19.2
     nunjucks: ^3.2.4
   checksum: cccec33d2644032cf806907ea0764a67e829773e5baf69d70d754fd776782952f7935d63419433fe402365ae79e2fba6a5547264463f6e1b054b9732e7f6a63e
+  languageName: node
+  linkType: hard
+
+"express-session@npm:^1.18.1":
+  version: 1.18.1
+  resolution: "express-session@npm:1.18.1"
+  dependencies:
+    cookie: 0.7.2
+    cookie-signature: 1.0.7
+    debug: 2.6.9
+    depd: ~2.0.0
+    on-headers: ~1.0.2
+    parseurl: ~1.3.3
+    safe-buffer: 5.2.1
+    uid-safe: ~2.1.5
+  checksum: e712cb3399300d9e300b51769ee3e81da6a4a54acc39137945134bf61a452f27ee9afde337f3c0f300457a88b3a12d0b5c711625684d7c8d998e9d2bd34d9e18
   languageName: node
   linkType: hard
 
@@ -8983,12 +9038,14 @@ __metadata:
     "@types/body-parser": ^1.19.2
     "@types/chai-as-promised": ^7.1.5
     "@types/config": ^3.3.0
+    "@types/connect-flash": ^0.0.40
     "@types/cookie-parser": ^1.4.3
     "@types/csurf": ^1.11.2
     "@types/es6-promisify": ^6.0.1
     "@types/express": ^4.17.17
+    "@types/express-session": ^1.18.1
     "@types/glob": ^8.1.0
-    "@types/jest": ^29.5.4
+    "@types/jest": ^29.5.14
     "@types/lodash": ^4.14.197
     "@types/node": ^20.0.0
     "@types/nunjucks": ^3.2.3
@@ -9007,6 +9064,7 @@ __metadata:
     chokidar: ^3.6.0
     codeceptjs: ^3.5.3
     config: ^3.3.9
+    connect-flash: ^0.1.1
     cookie-parser: ^1.4.6
     copy-webpack-plugin: 9.1.0
     css-loader: ^7.0.0
@@ -9018,12 +9076,14 @@ __metadata:
     eslint-plugin-jest: ^28.0.0
     express: ^4.18.2
     express-nunjucks: ^3.1.1
+    express-session: ^1.18.1
     glob: ^10.3.3
     govuk-frontend: 4.8.0
     html-webpack-plugin: ^5.5.3
     husky: ^9.0.0
     jest: ^29.6.2
     jest-html-reporter: ^3.10.1
+    joi: ^17.13.3
     jquery: ^3.7.0
     lint-staged: ^15.0.0
     lodash: ^4.17.21
@@ -10420,6 +10480,19 @@ __metadata:
     "@sideway/formula": ^3.0.1
     "@sideway/pinpoint": ^2.0.0
   checksum: 31c85bf49cfacd094dd70e52a3cba40c7eb95240f199cad06609d6e76563761864bcf9920b94a6eb8b46839a50087d44f8d5d4126df8be7502847e4b276ca8b0
+  languageName: node
+  linkType: hard
+
+"joi@npm:^17.13.3":
+  version: 17.13.3
+  resolution: "joi@npm:17.13.3"
+  dependencies:
+    "@hapi/hoek": ^9.3.0
+    "@hapi/topo": ^5.1.0
+    "@sideway/address": ^4.1.5
+    "@sideway/formula": ^3.0.1
+    "@sideway/pinpoint": ^2.0.0
+  checksum: 66ed454fee3d8e8da1ce21657fd2c7d565d98f3e539d2c5c028767e5f38cbd6297ce54df8312d1d094e62eb38f9452ebb43da4ce87321df66cf5e3f128cbc400
   languageName: node
   linkType: hard
 
@@ -12057,6 +12130,13 @@ __metadata:
   dependencies:
     ee-first: 1.1.1
   checksum: d20929a25e7f0bb62f937a425b5edeb4e4cde0540d77ba146ec9357f00b0d497cdb3b9b05b9c8e46222407d1548d08166bff69cc56dfa55ba0e4469228920ff0
+  languageName: node
+  linkType: hard
+
+"on-headers@npm:~1.0.2":
+  version: 1.0.2
+  resolution: "on-headers@npm:1.0.2"
+  checksum: 2bf13467215d1e540a62a75021e8b318a6cfc5d4fc53af8e8f84ad98dbcea02d506c6d24180cd62e1d769c44721ba542f3154effc1f7579a8288c9f7873ed8e5
   languageName: node
   linkType: hard
 
@@ -15214,7 +15294,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uid-safe@npm:2.1.5":
+"uid-safe@npm:2.1.5, uid-safe@npm:~2.1.5":
   version: 2.1.5
   resolution: "uid-safe@npm:2.1.5"
   dependencies:
