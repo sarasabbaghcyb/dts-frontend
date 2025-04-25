@@ -8,6 +8,19 @@
     "esModuleInterop": true,
     "module": "commonjs",
     "strictNullChecks": true,
-    "types": ["codeceptjs"]
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/main/types"  // This ensures your custom types are included
+    ],
+    "types": ["node", "jest", "codeceptjs"],  // Ensuring that CodeceptJS types are included
+    "include": [
+      "src",
+      "src/test",  // Ensure the test folder is included
+      "src/main/types/codeceptjs.d.ts" // Points directly to a specific type definition file
+    ],
+    "exclude": [
+      "**/*.test.ts",  // Exclude test files if you want
+      "**/codecept.conf.ts"
+    ]
   }
 }

@@ -1,3 +1,5 @@
+/// <reference types="codeceptjs" />
+
 import { config as testConfig } from './src/test/config';
 
 const { setHeadlessWhen } = require('@codeceptjs/configure');
@@ -5,6 +7,7 @@ const { setHeadlessWhen } = require('@codeceptjs/configure');
 setHeadlessWhen(testConfig.TestHeadlessBrowser);
 export const config: CodeceptJS.MainConfig = {
   name: 'functional',
+  require: ['ts-node/register'],
   gherkin: testConfig.Gherkin,
   output: './functional-output/functional/reports',
   helpers: testConfig.helpers,
@@ -29,3 +32,4 @@ export const config: CodeceptJS.MainConfig = {
     },
   },
 };
+

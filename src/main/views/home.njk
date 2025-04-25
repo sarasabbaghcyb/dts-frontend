@@ -1,9 +1,7 @@
 {% extends "template.njk" %}
 
 {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
-
 {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
-
 
 {% block content %}
   {% if errorMessage and errorMessage | length > 0 %}
@@ -27,31 +25,87 @@
   <h1 class="govuk-heading-xl">Welcome to your Task list!</h1>
   <a href="/task/new" class="govuk-button">Add New Task</a>
 
-  {% if tasks.length %}
-    <div class="govuk-!-width-three-quarters" style="background: #f3f2f1; padding: 20px; border-radius: 5px;">
-      {% for task in tasks %}
-        <div style="padding: 16px 0; border-bottom: 1px solid #b1b4b6;">
-          <div class="govuk-grid-row">
-            <div class="govuk-grid-column-three-quarters">
-              <a class="govuk-link govuk-!-font-size-19" href="/task/{{ task.id }}">
-                {{ task.title }}
-              </a>
-            </div>
-            <div class="govuk-grid-column-one-quarter govuk-!-text-align-right">
-              {% if task.status == "COMPLETED" %}
-                <strong class="govuk-tag govuk-tag--green">Completed</strong>
-              {% else %}
-                <strong class="govuk-tag govuk-tag--blue">
-                  {{ task.status or 'Incomplete' }}
-                </strong>
-              {% endif %}
+  <!-- Filter Dropdown -->
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="sortOrder">Sort tasks by:</label>
+    <select class="govuk-select" id="sortOrder">
+      <option value="alphabetical">Alphabetical</option>
+      <option value="id">ID</option>
+      <option value="completed">Completed Status</option>
+      <option value="pending">Pending Status</option>
+    </select>
+  </div>
+
+  <div class="govuk-!-width-three-quarters" style="background: #f3f2f1; padding: 20px; border-radius: 5px;">
+    {% if tasks.length %}
+      <div id="taskList">
+        {% for task in tasks %}
+          <div class="task" data-id="{{ task.id }}" data-status="{{ task.status }}" style="padding: 16px 0; border-bottom: 1px solid #b1b4b6;">
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-three-quarters">
+                <a class="govuk-link govuk-!-font-size-19" href="/task/{{ task.id }}">
+                  {{ task.title }}
+                </a>
+              </div>
+              <div class="govuk-grid-column-one-quarter govuk-!-text-align-right">
+                {% if task.status == "COMPLETED" %}
+                  <strong class="govuk-tag govuk-tag--green">Completed</strong>
+                {% else %}
+                  <strong class="govuk-tag govuk-tag--blue">
+                    {{ task.status or 'Incomplete' }}
+                  </strong>
+                {% endif %}
+              </div>
             </div>
           </div>
-        </div>
-      {% endfor %}
-    </div>
-  {% else %}
-    <p>No tasks available.</p>
-  {% endif %}
-{% endblock %}
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>No tasks available.</p>
+    {% endif %}
+  </div>
 
+  <script>
+    document.getElementById('sortOrder').addEventListener('change', function() {
+      var sortOrder = this.value;
+      var taskList = document.getElementById('taskList');
+      var tasks = Array.from(taskList.getElementsByClassName('task'));
+
+      tasks.sort(function(a, b) {
+        var valueA, valueB;
+
+        switch (sortOrder) {
+          case 'alphabetical':
+            valueA = a.querySelector('a').textContent.toLowerCase();
+            valueB = b.querySelector('a').textContent.toLowerCase();
+            return valueA.localeCompare(valueB);
+
+          case 'id':
+            valueA = parseInt(a.getAttribute('data-id'), 10);
+            valueB = parseInt(b.getAttribute('data-id'), 10);
+            return valueA - valueB;
+
+          case 'completed':
+            valueA = a.getAttribute('data-status') === 'COMPLETED';
+            valueB = b.getAttribute('data-status') === 'COMPLETED';
+            return valueB - valueA;
+
+          case 'pending':
+            valueA = a.getAttribute('data-status') === 'PENDING';
+            valueB = b.getAttribute('data-status') === 'PENDING';
+            return valueB - valueA;
+
+          default:
+            return 0;
+        }
+      });
+
+      // Clear the current task list and append the sorted tasks
+      taskList.innerHTML = '';
+      tasks.forEach(function(task) {
+        taskList.appendChild(task);
+      });
+    });
+  </script>
+
+{% endblock %}

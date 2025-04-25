@@ -20,5 +20,14 @@
       "routes/*": ["routes/*"]
     }
   },
-  "exclude": ["**/*.test.ts", "**/codecept.conf.ts", "**/__mocks__/*"]
+  "include": [
+    "src/**/*",
+    "src/main/types/codeceptjs.d.ts"
+  ],
+  "exclude": [
+    "**/*.test.ts",
+    "**/codecept.conf.ts",
+    "**/__mocks__/*"
+  ],
+  "types": ["node", "jest", "codeceptjs"]
 }
