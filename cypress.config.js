@@ -1,16 +1,19 @@
-const { defineConfig } = require("cypress");
-const createBundler = require("@bahmutov/cypress-esbuild-preprocessor");
-const { addCucumberPreprocessorPlugin } = require("@badeball/cypress-cucumber-preprocessor");
+const { defineConfig } = require('cypress');
+const createBundler = require('@bahmutov/cypress-esbuild-preprocessor');
+const { createEsbuildPlugin } = require('@badeball/cypress-cucumber-preprocessor/esbuild');
+const addCucumberPreprocessorPlugin = require('@badeball/cypress-cucumber-preprocessor').addCucumberPreprocessorPlugin;
 
 module.exports = defineConfig({
   e2e: {
+    specPattern: "cypress/e2e/**/*.feature",
+    baseUrl: "https://localhost:3100",
+    supportFile: false,
     async setupNodeEvents(on, config) {
       await addCucumberPreprocessorPlugin(on, config);
-      on("file:preprocessor", createBundler());
+      on('file:preprocessor', createBundler({
+        plugins: [createEsbuildPlugin(config)],
+      }));
       return config;
     },
-    specPattern: "cypress/e2e/**/*.feature", // look for .feature files
-    baseUrl: "http://localhost:3100", // or whatever port you run your app on
-    supportFile: false, // empty file we created earlier
   },
 });
