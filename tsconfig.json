@@ -29,5 +29,5 @@
     "**/codecept.conf.ts",
     "**/__mocks__/*"
   ],
-  "types": ["node", "jest", "codeceptjs"]
+  "types": ["node", "jest", "codeceptjs", "cypress"]
 }
