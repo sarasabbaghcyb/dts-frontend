@@ -22,3 +22,7 @@ Unit test are carried using Jest testing to carry out unit test which i have add
 ### Functionality
 I have added to the app by creating a user friendly ux and adding the functionality for users to view, add, delete and edit tasks.
 To do this I have stuck with gov design systems and used accessible design components.
+
+### Validation
+
+Validation is handled manually on the front end and forms also use Joi for strict valiadation as a layer of protection for what is sent back through to the api. 
